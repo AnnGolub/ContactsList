@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Person: Hashable {
-//    let id = UUID()
+struct Person: Identifiable {
+    let id = UUID()
     let firstName: String
     let surname: String
     let email: String
