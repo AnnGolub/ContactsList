@@ -15,10 +15,9 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                     Text("Persons")
                 }
-           
             NavigationView {
                 SectionTableViewControllerRepresentable()
-                    .navigationTitle("Contacts")
+                    .navigationBarTitle("Contacts")
             }
             .tabItem {
                 Image(systemName: "person.3.fill")

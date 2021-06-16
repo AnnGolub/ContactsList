@@ -12,10 +12,12 @@ class SectionTableViewController: UITableViewController {
     
     let persons = Person.getContactList()
     
+    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         persons.count
     }
     
+    //Использование метода для присваивания заголовка секции
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         persons[section].fullName
     }
@@ -52,14 +54,12 @@ class SectionTableViewController: UITableViewController {
 struct SectionTableViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(
-            identifier: "SectionTableViewController"
-        ) as! SectionTableViewController
+        return storyboard.instantiateViewController(withIdentifier: "SectionTableViewController") as! SectionTableViewController
     }
     
     func updateUIViewController(_ uiViewController: UITableViewController, context: Context) {
+        
     }
-    
 }
 
 struct SectionTableViewControllerPreview: PreviewProvider {
