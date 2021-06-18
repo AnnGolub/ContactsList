@@ -11,32 +11,24 @@ struct DetailsView: View {
     let person: Person
     
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 160, height: 160)
-            Form {
-                HStack {
-                    Image(systemName: "phone")
-                        .foregroundColor(.blue)
-                        .frame(width: 30, height: 30, alignment: .leading)
-                    Text("\(person.phoneNumber)")
-                }
-                HStack {
-                    Image(systemName: "mail")
-                        .foregroundColor(.blue)
-                        .frame(width: 30, height: 30, alignment: .leading)
-                    Text("\(person.email)")
-                }
+        Form {
+            HStack {
+                Spacer()
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .padding()
+                Spacer()
             }
+            RowView(image: "phone", text: person.phoneNumber)
+            RowView(image: "mail", text: person.email)
         }
-        .padding()
-        .navigationBarTitle("\(person.fullName)")
+        .navigationBarTitle(person.fullName)
     }
 }
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView(person: Person.init(firstName: "", surname: "", email: "@mail", phoneNumber: "123"))
+        DetailsView(person: Person.getContactList().first!)
     }
 }

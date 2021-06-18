@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct PersonsList: View {
-    let persons = Person.getContactList()
+    let persons: [Person]
     
     var body: some View {
         NavigationView {
             List(persons) { persons in
                 NavigationLink(destination: DetailsView(person: persons)) {
-                    PersonRow(person: persons)
+                    Text(persons.fullName)
+                        .frame(height: 50)
                 }
             }
-            .navigationBarTitle("Persons")
+            .navigationBarTitle("Contacts")
         }
     }
 }
@@ -25,6 +26,6 @@ struct PersonsList: View {
 
 struct PersonsList_Previews: PreviewProvider {
     static var previews: some View {
-        PersonsList()
+        PersonsList(persons: Person.getContactList())
     }
 }

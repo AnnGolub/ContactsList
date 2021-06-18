@@ -5,7 +5,7 @@
 //  Created by Анна Голубева on 16.06.2021.
 //
 
-import SwiftUI
+import Foundation
 
 struct Person: Identifiable {
     let id = UUID()
